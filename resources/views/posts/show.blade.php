@@ -13,7 +13,16 @@
                </div>
                <div class="w-max">
                   <a href="/profile/{{ $post->user->id }}" class="font-bold"> {{ $post->user->username }}</a>
-                  <a href="#" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ml-4">Follow</a>
+               </div>
+               <div>
+                  <form action="/follow/{{$post->user->id}}"  method="post"> 
+                  @csrf
+                     @if (auth()->user()->following->contains($post->user->id) == true) 
+                        <button value="Unfollow" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ml-4 pt-2">Unfollow</button>
+                     @else
+                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ml-4 pt-2">Follow</button>
+                     @endif
+                  </form>
                </div>
             </div>
             <hr class="ml-2">

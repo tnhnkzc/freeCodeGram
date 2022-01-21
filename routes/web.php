@@ -31,6 +31,7 @@ Route::get('/p/{post}', 'App\Http\Controllers\PostsController@show');
 
 
 
+
 Route::post('/p', 'App\Http\Controllers\PostsController@store');
 
 

@@ -10,6 +10,7 @@ class Profile extends Model
     protected $fillable = ['title','description', 'url', 'image'];
 
 
+    
 
 
     public function profileImage()
@@ -17,6 +18,14 @@ class Profile extends Model
         $imagePath = ($this->image) ?  $this->image : 'profile/UWffOo62zd1ApvQ0w8Wm309vs0sj4Zjm6HLQFZtt.png';
         return '/storage/' . $imagePath;
     }
+
+
+    public function followers()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
+
 
 
     public function user()

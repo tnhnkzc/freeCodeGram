@@ -13,7 +13,7 @@
                     <h1 class="font-bold text-lg ">{{ $user->username }}</h1>
 
                     
-                    <form action="/follow/{{$user->id}}" method="post">
+                    <form action="/follow/{{$user->id}}"  method="post">
                     @csrf
                         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ml-4 pt-2">Follow</button>
                     </form>

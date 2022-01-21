@@ -14,7 +14,7 @@
                 </div>
                
             @can('update', $user->profile)
-                <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ml-4" href="/profile/{{ $user->id }}/edit">Edit Profile</a>
+                <a class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ml-4" href="/profile/{{ $user->id }}/edit">Edit Profile</a>
                 @endcan
                 @can('update', $user->profile)
                 <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ml-4" href="/p/create">Add New Post</a>

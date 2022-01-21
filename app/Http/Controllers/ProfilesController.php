@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
 
 
@@ -11,7 +12,7 @@ class ProfilesController extends Controller
 {
     public function index($user)
     {
-        $follows =(auth()->user()) ? auth()->user()->following->contains($user) : false;
+        $follows = (auth()->user()) ? auth()->user()->following->contains($user) : false;
         
         
         $user = User::findOrFail($user);
@@ -19,6 +20,8 @@ class ProfilesController extends Controller
             'follows',  'user' => $user,
         ]);
     }
+
+
 
     public function edit(\App\Models\User $user)
     {

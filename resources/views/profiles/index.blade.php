@@ -11,11 +11,20 @@
             <div class="flex justify-between">
                 <div class="flex gap-2"> 
                     <h1 class="font-bold text-lg ">{{ $user->username }}</h1>
-
                     
-                    <form action="/follow/{{$user->id}}"  method="post">
+                    {{-- <input type="hidden" name="status" value="{{ $follows->status == 1 ? 0 : 1 }}"/>
+                    @if($follows->status == 1)
+                        <input type="submit" value="unfollow"/>
+                    @else
+                        <input type="submit" value="follow"/>
+                    @endif --}}
+                    <form action="/follow/{{$user->id}}"  method="post"> 
                     @csrf
-                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ml-4 pt-2">Follow</button>
+                        @if (auth()->user()->following->contains($user->id) == true) 
+                            <button value="Unfollow" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ml-4 pt-2">Unfollow</button>
+                        @else
+                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ml-4 pt-2">Follow</button>
+                        @endif
                     </form>
                 </div>
                
@@ -28,8 +37,8 @@
             </div>
             <div class="flex  justify-start mt-4">
                     <div class="pr-3"><strong>{{ $user->posts->count()}}</strong> posts</div>
-                    <div class="pr-3"><strong>23k</strong> followers</div>
-                    <div class="pr-3"><strong>212</strong> following</div>
+                    <div class="pr-3"><strong>{{ $user->profile->followers->count()}}</strong> followers</div>
+                    <div class="pr-3"><strong>{{ $user->following->count()}}</strong> following</div>
             </div>
             <div class="pt-5 font-bold">{{ $user->profile->title }}</div>
             <div>

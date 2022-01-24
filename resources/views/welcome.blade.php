@@ -2,27 +2,13 @@
 @section('content')
 
     
-        <div class="flex justify-center">
-            @if (Route::has('login'))
-                <div class="flex m-auto gap-4 p-6 mt-8">
-                    @auth
-                        <a href="{{ url('/home') }}" >Home</a>
-                    @else
-                        <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" href="{{ route('login') }}" >Log in</a>
-
-                        @if (Route::has('register'))
-                            <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" href="{{ route('register') }}" >Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-        </div>
-        <div class="text-center mt-16">
-            <h1>
+        <div class="flex flex-col justify-center">
+            <div class="text-center mt-16">
+            <h1 class="text-5xl">
                 freeCodeGram
             </h1>
-            <p>
-                Welcome to the best social media website.
+            <p class="text-xl mt-8">
+                Welcome to the best social media website for developers.
             </p>
-        </div>
+        </div>       
 @endsection

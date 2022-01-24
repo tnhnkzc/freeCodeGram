@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Mail\NewUserWelcomeMail;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +18,15 @@ use Illuminate\Support\Facades\Route;
 
 
 Auth::routes();
+
+
+
+Route::get('/welcome', function(){
+ return view('welcome');
+});
+
+
+
 
 Route::get('/email', function () {
  return new NewUserWelcomeMail();

@@ -24,7 +24,7 @@
     <div id="app">
         <nav class=" w-full mx-auto max-w-5xl">
             <div  class="flex justify-between items-center border-y-2 rounded-md py-4 " >
-                <a class="flex" href="{{ url('/') }}">
+                <a class="flex" href="{{ url('/welcome') }}">
                     <div><img src="/svg/freeCodeCampLogo.svg"  style="height: 25px;" class="pr-3  border-r-2 border-slate-500 "></div>
                     <div class="pl-3"><strong>freeCodeGram</strong></div>
                 </a>
@@ -39,22 +39,22 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto p-6">
+                    <ul class=" p-6">
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
-                                <li class="nav-item">
+                                <li class="mb-6">
                                     <a class="nav-link bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full " href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
-                                <li class="nav-item">
+                                <li>
                                     <a class="nav-link bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full pb-2" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown mb-4">
+                            <li class="mb-4">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->username }}
                                 </a>

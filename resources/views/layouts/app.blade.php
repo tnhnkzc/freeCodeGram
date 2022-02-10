@@ -24,7 +24,7 @@
     <div id="app">
         <nav class=" w-full mx-auto max-w-5xl">
             <div  class="flex justify-between items-center border-y-2 rounded-md py-4 " >
-                <a class="flex" href="{{ url('/welcome') }}">
+                <a class="flex" href="{{ url('/') }}">
                     <div><img src="/svg/freeCodeCampLogo.svg"  style="height: 25px;" class="pr-3  border-r-2 border-slate-500 "></div>
                     <div class="pl-3"><strong>freeCodeGram</strong></div>
                 </a>
